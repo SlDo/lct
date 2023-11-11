@@ -16,4 +16,19 @@ export const GlobalStyle = createGlobalStyle`
   .stopScroll {
     overflow: hidden;
   }
+  
+  .react-player {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: black;
+  }
+  
+  .react-player > video {
+    position: relative;
+    left: 0;
+    top: 0;
+    border-radius: 20px;
+    overflow: hidden;
+  }
 `;

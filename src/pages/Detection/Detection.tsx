@@ -1,4 +1,4 @@
-import React, { type ChangeEvent, type FC, useEffect, useMemo, useState } from 'react';
+import React, { type ChangeEvent, type FC, useMemo, useState } from 'react';
 
 import Zoom from 'react-medium-image-zoom';
 import { useTheme } from 'styled-components';
@@ -35,7 +35,6 @@ export const Detection: FC = () => {
   const isMobileSmall = useBreakpoint(theme.breakpoints.mobile_small);
   const [videoName, setVideoName] = useState('');
   const [selectedAction, setSelectedAction] = useState<number | null>(null);
-  const [isStarted, setIsStarted] = useState(true);
 
   const { data, runRequest } = useAPI<
   AddFileRequest,
@@ -55,13 +54,7 @@ export const Detection: FC = () => {
     if (data?.id) {
       getFragments({ file_id: data?.id });
     }
-  }, data?.id && isStarted ? 5000 : undefined);
-
-  useEffect(() => {
-    if (fragmentsData?.actions && fragmentsData?.actions.length !== 0) {
-      setIsStarted(false);
-    }
-  }, [fragmentsData?.actions]);
+  }, data?.id ? 5000 : undefined);
 
   const onUploadVideo = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.currentTarget.files?.[0];
@@ -94,10 +87,10 @@ export const Detection: FC = () => {
             </Styled.Head>
             {selectedFragment?.frame ? (
               <Zoom zoomMargin={theme.spacings.x32}>
-                <Styled.FragmentImage style={{ height: isMobile ? '300px' : '900px' }} alt={selectedFragment?.comment ?? ''} images={[{ type: 'jpeg', image: `data:image/jpeg;base64,${selectedFragment?.frame ?? ''}` }]} radius={theme.radiuses.df} />
+                <Styled.FragmentImage style={{ height: isMobile ? '300px' : '900px', width: '100%' }} alt={selectedFragment?.comment ?? ''} images={[{ type: 'jpeg', image: `data:image/jpeg;base64,${selectedFragment?.frame ?? ''}` }]} radius={theme.radiuses.df} />
               </Zoom>
             ) : (
-              <Flex fullWidth alignItems={FlexAlignItems.CENTER} justifyContent={FlexJustifyContent.CENTER} style={{ background: 'white', borderRadius: RADIUSES.MEDIUM + 'px', height: isMobile ? '300px' : '900px' }}>
+              <Flex fullWidth alignItems={FlexAlignItems.CENTER} justifyContent={FlexJustifyContent.CENTER} style={{ background: 'white', borderRadius: RADIUSES.MEDIUM + 'px', width: '100%', height: isMobile ? '300px' : '900px' }}>
                 {(fragmentsData?.actions.length === 0 || !fragmentsData?.actions) && data?.id ? <Spinner /> : <Text size={TextSize.M2}>Для начала загрузите ролик</Text>}
               </Flex>
             )}
@@ -125,6 +118,7 @@ export const Detection: FC = () => {
             </Flex>
           </Styled.Container>
         </Flex>
+        <Spacer space={theme.spacings.x48} />
       </PageLayout>
     </>
   );

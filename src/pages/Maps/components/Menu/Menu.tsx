@@ -6,7 +6,6 @@ import { Flex, Input, Spacer, Spinner } from '@uiKit';
 
 import { FlexJustifyContent } from '@uiKit/Flex/types';
 
-import image from '@assets/images/danger.svg';
 import { useBreakpoint } from '@hooks/useBreakpoint';
 import { CameraListItem } from '@pages/Maps/components/Menu/components/CameraList/components';
 import { type MenuProps } from '@pages/Maps/components/Menu/types';
@@ -37,13 +36,7 @@ export const Menu: FC<MenuProps> = ({ cameras }) => {
                 icon={icon} id={id} address={address} /></Styled.ListLink>)}
             </Styled.List>
         )}
-      </Styled.MenuWrapper> : <MapsMenuBottomSheet cameraList={[
-        { icon: image, id: 1, address: 'г. Анапа, ул. Тверская, д. 5/6, 1 эт. , холл' },
-        { icon: image, id: 2, address: 'г. Анапа, ул. Тверская, д. 12, 1 эт. , холл' },
-        { icon: image, id: 3, address: 'г. Анапа, ул. Тверская, д. 52, 1 эт. , холл' },
-        { icon: image, id: 4, address: 'г. Анапа, ул. Тверская, д. 103, 1 эт. , холл' },
-        { icon: image, id: 5, address: 'г. Анапа, пр. Ленина, д. 12, 1 эт. , холл' }
-      ]} />}
+      </Styled.MenuWrapper> : <MapsMenuBottomSheet cameraList={cameraList} />}
     </>
   );
 };

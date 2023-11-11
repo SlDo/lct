@@ -21,7 +21,6 @@ import { PageLayout } from '@layouts/PageLayout';
 import { getActions, getCam } from '@lib/api';
 import { type GetCamRequest, type GetCamResponse } from '@lib/api/rest/cams/get/types';
 import { type GetActionsRequest, type GetActionsResponse } from '@lib/api/rest/cams/getActions/types';
-import { RADIUSES } from '@lib/theme/constants';
 import { Styled } from '@pages/Camera/styled';
 
 import { Menu } from './components';
@@ -34,6 +33,7 @@ export const Camera: FC = () => {
   const isMobile = useBreakpoint(theme.breakpoints.mobile);
   const isMobileSmall = useBreakpoint(theme.breakpoints.mobile_small);
   const [isOpen, setIsOpen] = useState(false);
+
   const { id } = useParams();
 
   const { data } = useAPI<
@@ -83,7 +83,14 @@ export const Camera: FC = () => {
                 <Heading size={HeadingSize.DF}>Видеокамера {id}</Heading>
               </Flex>
             </Styled.Head>
-            <ReactPlayer style={{ borderRadius: RADIUSES.MEDIUM + 'px', overflow: 'hidden' }} width='100%' height={isMobile ? '300px' : '900px'} url='https://www.youtube.com/watch?v=LXb3EKWsInQ' />
+            <ReactPlayer
+              className="react-player"
+              width='100%'
+              height='900px'
+              controls
+              url="https://rtsp.onixx.ru/stream/camera4/index.m3u8"
+              playing={true}
+            />
           </Flex>
           <Flex fullHeight gap={theme.spacings.x48} direction={isMobile ? FlexDirection.COLUMN_REVERSE : FlexDirection.COLUMN}>
             {isMobile && <Spacer space={theme.spacings.x48} />}
@@ -94,6 +101,7 @@ export const Camera: FC = () => {
             <Menu onActionClick={onActionClick} actions={fragmentsData?.actions} />
           </Flex>
         </Flex>
+        <Spacer space={theme.spacings.x24} />
       </PageLayout>
       <Modal
         title='Видеофрагмент'

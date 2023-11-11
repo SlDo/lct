@@ -17,7 +17,7 @@ export const MapsMenuBottomSheet: FC<MapsMenuBottomSheetProps> = ({ cameraList }
     setSearch(e.currentTarget.value);
   };
 
-  const cameras = useMemo(() => (cameraList.filter(({ address, id }) => address.search(search) !== -1 || id === parseInt(search))), [cameraList]);
+  const cameras = useMemo(() => (cameraList?.filter(({ address, id }) => address.search(search) !== -1 || id === parseInt(search))), [cameraList]);
 
   return (
     <BottomSheet
@@ -31,7 +31,7 @@ export const MapsMenuBottomSheet: FC<MapsMenuBottomSheetProps> = ({ cameraList }
     >
       <Styled.Content>
         <Styled.List>
-          {cameras.map(({ id, icon, address }) => <Styled.ListLink key={id}
+          {cameras?.map(({ id, icon, address }) => <Styled.ListLink key={id}
                                                                    to={ROUTES.camera.path.replace(':id', String(id))}><CameraListItem
             icon={icon} id={id} address={address} /></Styled.ListLink>)}
         </Styled.List>

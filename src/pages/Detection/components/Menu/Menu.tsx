@@ -12,7 +12,7 @@ import { type MenuProps } from './types';
 
 export const Menu: FC<MenuProps> = ({ actions, onActionClick }) => {
   const theme = useTheme();
-  const actionList = useMemo(() => actions?.map(({ time_detected: timeDetected, id }) => ({ interval: timeDetected, id })), [actions]);
+  const actionList = useMemo(() => actions?.map(({ time_detected: timeDetected, id, precision }) => ({ interval: timeDetected, id, precision })), [actions]);
 
   return (
     <Styled.MenuWrapper>
@@ -20,7 +20,7 @@ export const Menu: FC<MenuProps> = ({ actions, onActionClick }) => {
       <Spacer space={theme.spacings.x24} />
       {actionList?.length === 0 || !actionList ? <Text>Видеофрагменты отсутствуют</Text> : (
         <Styled.List>
-          {actionList?.map(({ id, interval }) => <FragmentListItem onClick={() => { onActionClick(id); }} key={id} interval={interval} />)}
+          {actionList?.map(({ id, interval, precision }) => <FragmentListItem onClick={() => { onActionClick(id); }} key={id} interval={interval} color={precision < 0.9 ? '#FFEFB8' : '#EFCAC8'} iconColor={precision < 0.9 ? '#FFEFB8' : '#EFCAC8'} />)}
         </Styled.List>
       )}
     </Styled.MenuWrapper>

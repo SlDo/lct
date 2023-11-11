@@ -9,7 +9,7 @@ export interface GetFileActionsResponse {
     time_detected: string
     comment: string
     detection: string
-    precision: string
+    precision: number
     frame: string
   }>
 }
