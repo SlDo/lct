@@ -8,4 +8,5 @@ export interface TextareaProps extends HTMLAttributes<HTMLTextAreaElement> {
   labelColor?: string
   readOnly?: boolean
   value?: string
+  placeholder?: string
 }

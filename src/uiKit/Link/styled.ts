@@ -40,11 +40,11 @@ const Link = styled.a<{
   `};
 
   &:hover {
-    color: ${({ theme }) => theme.colors.base.acent};
+    color: ${({ theme }) => theme.colors.base.grey[200]};
   }
 
   &:focus-visible {
-    color: ${({ theme }) => theme.colors.base.acent};
+    color: ${({ theme }) => theme.colors.base.grey[200]};
     outline: none;
   }
   

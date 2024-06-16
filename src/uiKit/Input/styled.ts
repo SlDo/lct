@@ -38,13 +38,14 @@ const Input = styled.input<{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #F0F0F1;
+  background: #222932;
   border-radius: ${({ theme }) => theme.radiuses.df}px;
   box-sizing: border-box;
   transition: 0.25s;
   outline: none;
   width: 100%;
   border: 1px solid transparent;
+  color: white;
   
   &:focus-visible, &:active {
     border: 1px solid ${({ theme }) => theme.colors.base.acent};

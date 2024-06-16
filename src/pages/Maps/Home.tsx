@@ -12,7 +12,7 @@ import { Styled } from '@pages/Maps/styled';
 
 import 'react-spring-bottom-sheet/dist/style.css';
 
-export const Maps: FC = () => {
+export const Home: FC = () => {
   const { data, runRequest } = useAPI<
   GetAllCamsRequest,
   GetAllCamsResponse

@@ -15,7 +15,7 @@ export const DesktopHeaderNav: FC = () => {
       <nav>
           <Styled.LinkList>
               <Styled.LinkListItem>
-                  <Link size={LinkSize.LG} as={NavLink} to={ROUTES.maps.path}>Карта видеокамер</Link>
+                  <Link size={LinkSize.LG} as={NavLink} to={ROUTES.home.path}>Дашборд видео</Link>
               </Styled.LinkListItem>
               <Styled.LinkListItem>
                   <Link size={LinkSize.LG} as={NavLink} to={ROUTES.detection.path}>Детекция</Link>

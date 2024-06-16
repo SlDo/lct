@@ -1,5 +1,5 @@
-export const MAPS_ROUTE = {
-  maps: {
+export const HOME_ROUTE = {
+  home: {
     path: '/'
   }
 };

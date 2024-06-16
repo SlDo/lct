@@ -25,7 +25,7 @@ export const SignIn: FC = () => {
   const { getAccessToken, addAccessToken } = useAuthToken();
   const { redirect } = useRedirect();
 
-  if (getAccessToken()) return <Navigate to={ROUTES.maps.path} />;
+  if (getAccessToken()) return <Navigate to={ROUTES.home.path} />;
 
   const { runRequest, isError, data, isLoading } = useAPI<
   SignInRequest,
@@ -51,7 +51,7 @@ export const SignIn: FC = () => {
   useEffect(() => {
     if (!isLoading && !isError && data?.access_token) {
       addAccessToken(data.access_token);
-      redirect(ROUTES.maps.path);
+      redirect(ROUTES.home.path);
     }
   }, [data, isLoading, isError]);
 
@@ -59,7 +59,7 @@ export const SignIn: FC = () => {
     <PageLayoutWithoutHeader>
       <Styled.Container gap={theme.spacings.x64} justifyContent={FlexJustifyContent.SPACE_BETWEEN} fullHeight alignItems={FlexAlignItems.CENTER}>
         <Flex fullWidth={isLaptop} alignItems={isLaptop ? FlexAlignItems.CENTER : undefined} direction={FlexDirection.COLUMN}>
-          <Heading fontWeight={500} align={isLaptop ? HeadingAlign.CENTER : undefined}>Добро пожаловать <br/> в <Styled.TitleHighlight>Протектус</Styled.TitleHighlight></Heading>
+          <Heading fontWeight={500} align={isLaptop ? HeadingAlign.CENTER : undefined}>Добро пожаловать <br/> в <Styled.TitleHighlight>Лицензиус</Styled.TitleHighlight></Heading>
           <Spacer space={isLaptop ? theme.spacings.x64 : theme.spacings.x128} />
           <Styled.Form onSubmit={onSubmit}>
             <Styled.SignInInput fullWidth placeholder='Почта' name='username' type='email' />

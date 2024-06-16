@@ -15,4 +15,5 @@ export interface InputProps extends HTMLAttributes<HTMLInputElement> {
   error?: string
   value?: string
   name?: string
+  placeholder?: string
 }

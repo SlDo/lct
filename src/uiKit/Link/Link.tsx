@@ -12,7 +12,7 @@ import { LinkSize, type LinkProps } from './types';
 export const Link = <K extends ElementType = 'a'>({
   children,
   as,
-  color = COLORS.BASE_COLORS.GREY[700],
+  color = COLORS.BASE_COLORS.LIGHT,
   size = LinkSize.DF,
   isUnderline,
   ...props

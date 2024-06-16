@@ -12,7 +12,7 @@ export const Heading: FC<HeadingProps> = forwardRef<HTMLHeadingElement, HeadingP
       type = HeadingType.H1,
       size,
       fontWeight = 600,
-      color = COLORS.BASE_COLORS.DARK,
+      color = COLORS.BASE_COLORS.LIGHT,
       align,
       children,
       ...props

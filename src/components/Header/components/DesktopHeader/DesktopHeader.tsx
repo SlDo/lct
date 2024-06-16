@@ -22,7 +22,7 @@ export const DesktopHeader: FC = () => {
   return (
     <Styled.Header>
       <Flex alignItems={FlexAlignItems.CENTER}>
-        <RouterLink to={ROUTES.maps.path}>
+        <RouterLink to={ROUTES.home.path}>
           <Logo />
         </RouterLink>
         <Spacer space={theme.spacings.x64} />

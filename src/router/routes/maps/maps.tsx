@@ -1,18 +1,18 @@
 import React from 'react';
 
-import { Maps } from 'pages/Maps';
+import { Home } from 'pages/Maps';
 import { type RouteObject } from 'react-router-dom';
 
 import { ProtectedRoute } from '@component/ProtectedRoute';
 
-import { MAPS_ROUTE } from './constants';
+import { HOME_ROUTE } from './constants';
 
-export const mapsRoutes: RouteObject[] = [
+export const homeRoutes: RouteObject[] = [
   {
-    path: MAPS_ROUTE.maps.path,
+    path: HOME_ROUTE.home.path,
     element: (
         <ProtectedRoute>
-          <Maps />
+          <Home />
         </ProtectedRoute>
     )
   }
